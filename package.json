@@ -1,0 +1,23 @@
+{
+  "name": "social-network-api",
+  "version": "1.0.0",
+  "description": "Module 18 No Sql Challenge",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/JeenaKozhimukkath/Social-Network-API.git"
+  },
+  "author": "JK",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JeenaKozhimukkath/Social-Network-API/issues"
+  },
+  "homepage": "https://github.com/JeenaKozhimukkath/Social-Network-API#readme",
+  "dependencies": {
+    "express": "^4.17.3",
+    "mongoose": "^6.2.9"
+  }
+}
