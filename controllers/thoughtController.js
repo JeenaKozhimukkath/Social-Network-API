@@ -1,7 +1,7 @@
 const { Thought,User } = require("../models");
 
 const thoughtController = {
-    getThoughts(req , res) {
+    getAllThoughts(req , res) {
         Thought.find()
         .then(thoughtData => res.json(thoughtData))
         .catch(err => res.status(500).json(err))
@@ -17,10 +17,10 @@ const thoughtController = {
     },
     createThought(req, res) {
         Thought.create(req.body)
-            .then((thought) => {
+            .then((thoughts) => {
                 return User.findOneAndUpdate(
                     { _id: req.params.userId },
-                    { $push: { thought: thought._id } },
+                    { $push: { thoughts: thoughts._id } },
                     { new: true }
                 );
             })
@@ -51,7 +51,7 @@ const thoughtController = {
                     ? res.status(404).json({ message: 'No thought with this id exists' })
                     : User.findOneAndUpdate(
                         { _id: req.params.thoughtId },
-                        { $pull: { thought: req.params.thoughtId } },
+                        { $pull: { thoughts: req.params.thoughtId } },
                         { new: true }
                     )
             )
@@ -89,4 +89,6 @@ const thoughtController = {
             .catch((err) => res.status(500).json(err));
     },
 
-}
+};
+
+module.exports = thoughtController;
