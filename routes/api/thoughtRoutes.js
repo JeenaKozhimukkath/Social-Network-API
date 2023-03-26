@@ -3,7 +3,7 @@ const { getAllThoughts, getThoughtbyId, createThought, updateThought, deleteThou
 
 router.route('/').get(getAllThoughts)
 
-router.route('/:userId').post(createThought)
+router.route('/').post(createThought)
 
 router.route('/:thoughtId').get(getThoughtbyId).put(updateThought).delete(deleteThought);
 
